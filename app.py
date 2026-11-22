@@ -1,4 +1,3 @@
-"""ICT336 Group 123 — Hotel Booking Cancellation Prediction (Gradio)."""
 import json
 from pathlib import Path
 
@@ -6,6 +5,23 @@ import gradio as gr
 import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
+
+import os
+import urllib.request
+
+MODEL_FILE = "ICT336_G123_Model.joblib"
+
+MODEL_URL = (
+    "https://huggingface.co/spaces/"
+    "kaungnayne/hotelprediction/resolve/main/"
+    "ICT336_G123_Model.joblib"
+)
+
+if not os.path.exists(MODEL_FILE):
+    print("Downloading trained model...")
+    urllib.request.urlretrieve(MODEL_URL, MODEL_FILE)
+    print("Model downloaded successfully!")
+
 
 ROOT = Path(__file__).resolve().parent
 MODEL = joblib.load(ROOT / 'ICT336_G123_Model.joblib')  # Load only trusted files.
@@ -125,4 +141,9 @@ This educational project predicts hotel booking cancellation using a supervised 
 ''')
 
 if __name__ == '__main__':
-    demo.launch()
+    
+demo.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("PORT", 10000))
+)
+
