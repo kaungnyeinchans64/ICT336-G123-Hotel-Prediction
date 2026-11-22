@@ -1,0 +1,41 @@
+{
+    "project": "Hotel Booking Cancellation Prediction",
+    "group": "123",
+    "model": "Random Forest",
+    "features": [
+        "hotel",
+        "lead_time",
+        "arrival_date_year",
+        "arrival_date_month",
+        "arrival_date_week_number",
+        "arrival_date_day_of_month",
+        "stays_in_weekend_nights",
+        "stays_in_week_nights",
+        "adults",
+        "children",
+        "babies",
+        "meal",
+        "market_segment",
+        "distribution_channel",
+        "is_repeated_guest",
+        "previous_cancellations",
+        "previous_bookings_not_canceled",
+        "reserved_room_type",
+        "deposit_type",
+        "customer_type"
+    ],
+    "target": "is_canceled",
+    "cv_f1": 0.7388751163213766,
+    "test_accuracy": 0.8030366579984901,
+    "test_precision": 0.7179675994108984,
+    "test_recall": 0.7720588235294118,
+    "test_f1": 0.7440313964896981,
+    "target_f1": 0.75,
+    "target_achieved": false,
+    "evaluation_note": "Revised hold-out evaluation after earlier test results were inspected; not fully independent.",
+    "limitations": [
+        "Predictions are estimates, not guarantees.",
+        "Performance differs between hotel types.",
+        "Historical hotel data may not represent current bookings."
+    ]
+}
